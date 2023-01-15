@@ -39,7 +39,7 @@ c:  48 89 54 24 30          mov    QWORD PTR [rsp+0x30],rdx
 
 
 # Project Usage
-Usage of this project is very simple. Simply include "import-hoodini.hpp" and pick one of the following setups:
+Usage of this project is very simple. Simply include "import-hoodini.hpp" and call one of the following setups in your entrypoint.
 
 A generic project may do the following which will simply protect ALL imported routines:
 ```
