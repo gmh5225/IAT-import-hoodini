@@ -1,7 +1,6 @@
 # import-hoodini
 Simple runtime import protection &amp; hook mitigation
 
-#What is Import Hoodini?
 Import Hoodini is a simple concept of reversing the common usage of the Import Address Table.
 The IAT (Import Address Table) is used in every native Windows application to allow modules to import routines which have been exported by other libraries/modules. Attackers will often abuse the IAT by either swapping the pointer to their own prologue OR by hooking the exported routine. This project mitigates and prevents these types of attacks by registering callbacks using small assembly stubs relative to every import which is responsbible for integrity checking them before allowing the call to commence. A snippet of this stub can be found below:
 ```
