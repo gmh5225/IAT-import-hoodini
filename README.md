@@ -93,7 +93,7 @@ The object in the std::vector<> return value contains the type of hook and also 
 
 
 # --
-Advantgages of this project:
+Advantages of this project:
 - Integrity checks functions inline and restores patches so that an attacker's hook is never hit
 - Protection checks to ensure that VEH hooks and other sorts of protection hooks are not hit.
 - Safe for multi-threaded projects/libraries
