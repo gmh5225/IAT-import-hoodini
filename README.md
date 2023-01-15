@@ -109,4 +109,4 @@ Disadvantages/to-do:
 
 **Please ensure optimizations are disabled if you attempt to use this project!**
 
-Credits to [@irql0] (https://www.github.com/irql0) for assembly stub & other bits.
+Credits to [@irql0](https://www.github.com/irql0) for assembly stub & other bits.
