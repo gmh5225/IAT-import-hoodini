@@ -1,7 +1,7 @@
 # import-hoodini
 Simple runtime import protection &amp; hook mitigation
 
-**What is Import Hoodini?**
+#What is Import Hoodini?
 Import Hoodini is a simple concept of reversing the common usage of the Import Address Table.
 The IAT (Import Address Table) is used in every native Windows application to allow modules to import routines which have been exported by other libraries/modules. Attackers will often abuse the IAT by either swapping the pointer to their own prologue OR by hooking the exported routine. This project mitigates and prevents these types of attacks by registering callbacks using small assembly stubs relative to every import which is responsbible for integrity checking them before allowing the call to commence. A snippet of this stub can be found below:
 ```
@@ -36,8 +36,10 @@ The IAT (Import Address Table) is used in every native Windows application to al
 		83: 41 ff e2                jmp    r10                          ; call original export / imported routine
 ```
 
-**Project Usage**
 
+
+
+# Project Usage
 Usage of this project is very simple. Simply include "import-hoodini.hpp" and pick one of the following setups:
 
 A generic project may do the following which will simply protect ALL imported routines:
@@ -75,6 +77,9 @@ ImportHoodini::Setup_Specific(
 );
 ```
 
+
+
+
 **Report System**
 
 Any time a function is hooked and ImportHoodini restores it, a report is made. 
@@ -86,7 +91,10 @@ ImportHoodini::Reports::GetReports();
 
 The object in the std::vector<> return value contains the type of hook and also a function dump which is created when the hook is detected.
 
-**--**
+
+
+
+# --
 Advantgages of this project:
 - Integrity checks functions inline and restores patches so that an attacker's hook is never hit
 - Protection checks to ensure that VEH hooks and other sorts of protection hooks are not hit.
