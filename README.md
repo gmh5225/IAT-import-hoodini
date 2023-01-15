@@ -51,8 +51,8 @@ OR if you wish to specify a list of imports which should NOT be protected:
 ```
 // Basic refuse list for printf()
 std::vector<std::uint64_t> RefuseList = {
-	(std::uint64_t)&__stdio_common_vfprintf,
-	(std::uint64_t)&__acrt_iob_func
+  (std::uint64_t)&__stdio_common_vfprintf,
+  (std::uint64_t)&__acrt_iob_func
 };
 
 ImportHoodini::Setup_AllImports(
@@ -71,8 +71,8 @@ std::vector<std::uint64_t> ProtectionList = {
 };
 
 ImportHoodini::Setup_Specific(
-	GetModuleHandleA(NULL),
-	ProtectionList
+  GetModuleHandleA(NULL),
+  ProtectionList
 );
 ```
 
