@@ -106,3 +106,5 @@ Disadvantages/to-do:
 - Uses a disassembler to calculate function size (set to maximum of 0x20h bytes) however this does not handle near jumps and other instructions which could change order of execution.
 - Ignores all imports from MSVCP140.dll & also free, malloc and realloc as they may cause deadlocks.
 - This project assumes that patches / inline hooks are placed at the start of the prologue which is not always true therefore it will not detect hooks past 0x20 bytes into the prologue.
+
+**Please ensure optimizations are disabled if you attempt to use this project!**
