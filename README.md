@@ -5,7 +5,7 @@ A video demonstration of this can be found here: https://youtu.be/TWWLiTAPz1U
 
 Import Hoodini is a simple concept of reversing the common usage of the Import Address Table.
 The IAT (Import Address Table) is used in every native Windows application to allow modules to import routines which have been exported by other libraries/modules. Attackers will often abuse the IAT by either swapping the pointer to their own prologue OR by hooking the exported routine. This project mitigates and prevents these types of attacks by registering callbacks using small assembly stubs relative to every import which is responsbible for integrity checking them before allowing the call to commence. A snippet of this stub can be found below:
-```
+```asm
 0:  48 81 ec 88 00 00 00    sub    rsp,0x88                     ; allocating stack space
 7:  48 89 4c 24 28          mov    QWORD PTR [rsp+0x28],rcx     ; 'saving' the stack so that the original call can commence
 c:  48 89 54 24 30          mov    QWORD PTR [rsp+0x30],rdx
@@ -44,13 +44,13 @@ c:  48 89 54 24 30          mov    QWORD PTR [rsp+0x30],rdx
 Usage of this project is very simple. Simply include "import-hoodini.hpp" and call one of the following setups in your entrypoint.
 
 A generic project may do the following which will simply protect ALL imported routines:
-```
+```cpp
 ImportHoodini::Setup_AllImports();
 ImportHoodini::ActivateImportCallbacks();
 ```
 
 OR if you wish to specify a list of imports which should NOT be protected:
-```
+```cpp
 // Basic refuse list for printf()
 std::vector<std::uint64_t> RefuseList = {
   (std::uint64_t)&__stdio_common_vfprintf,
@@ -66,7 +66,7 @@ ImportHoodini::ActivateImportCallbacks();
 ```
 
 OR if you wish to specify a list of imports which should ONLY be protected:
-```
+```cpp
 // ONLY protect IsDebuggerPresent
 std::vector<std::uint64_t> ProtectionList = {
   (std::uint64_t)&IsDebuggerPresent
@@ -85,7 +85,7 @@ ImportHoodini::Setup_Specific(
 Any time a function is hooked and ImportHoodini restores it, a report is made. 
 
 These reports can be obtained by calling:
-```
+```cpp
 ImportHoodini::Reports::GetReports();
 ```
 
