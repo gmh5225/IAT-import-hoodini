@@ -80,8 +80,7 @@ ImportHoodini::Setup_Specific(
 
 
 
-**Report System**
-
+#Report System
 Any time a function is hooked and ImportHoodini restores it, a report is made. 
 
 These reports can be obtained by calling:
