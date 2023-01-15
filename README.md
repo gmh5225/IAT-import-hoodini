@@ -38,8 +38,6 @@ c:  48 89 54 24 30          mov    QWORD PTR [rsp+0x30],rdx
 ```
 
 
-
-
 # Project Usage
 Usage of this project is very simple. Simply include "import-hoodini.hpp" and call one of the following setups in your entrypoint.
 
@@ -110,3 +108,5 @@ Disadvantages/to-do:
 - This project assumes that patches / inline hooks are placed at the start of the prologue which is not always true therefore it will not detect hooks past 0x20 bytes into the prologue.
 
 **Please ensure optimizations are disabled if you attempt to use this project!**
+
+Credits to [@irql0] (https://www.github.com/irql0) for assembly stub & other bits.
