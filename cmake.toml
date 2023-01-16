@@ -1,0 +1,15 @@
+# Reference: https://build-cpp.github.io/cmkr/cmake-toml
+
+
+[project]
+name = "import-hoodini"
+msvc-runtime = "static"
+languages = ["CXX"]
+
+[target.test]
+type = "executable"
+headers = ["include/**.h", "include/**.hpp", "test/**.h"]
+sources = ["include/**.cpp", "test/**.cpp", "test/**.h"]
+include-directories = ["include"]
+compile-features = ["cxx_std_20"]
+compile-options = ["/Od", "/Ob0"]
